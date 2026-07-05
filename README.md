@@ -2,130 +2,142 @@
 
 Track your expenses with ease!
 
-[![language](https://img.shields.io/badge/language-Dart-blue.svg)] [![license](https://img.shields.io/badge/license-MIT-green.svg)] [![package manager](https://img.shields.io/badge/package%20manager-flutter-orange.svg)] [![testing](https://img.shields.io/badge/testing-yes-brightgreen.svg)]
+[![language](https://img.shields.io/badge/language-C%2B%2B-blue.svg)] [![license](https://img.shields.io/badge/license-MIT-green.svg)] [![package manager](https://img.shields.io/badge/package%20manager-flutter-orange.svg)] [![framework](https://img.shields.io/badge/framework-Flutter-purple.svg)] [![testing](https://img.shields.io/badge/testing-Yes-brightgreen.svg)]
 
-expense_tracker_app is a Flutter app designed to help you keep track of your expenses. With its intuitive interface and powerful features, it makes managing your finances a breeze.
+expense_tracker_app is a Flutter application designed to help you track your expenses efficiently. Whether you're managing personal finances or business expenses, this app provides a simple and intuitive interface to keep your financial data organized.
+
+## Introduction
+
+expense_tracker_app allows you to easily record, categorize, and visualize your expenses. With features like expense tracking, budgeting, and reporting, it helps you gain insights into your spending habits and make informed decisions.
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [How It Works](#how-it-works)
-3. [Technology Stack](#technology-stack)
-4. [Requirements](#requirements)
-5. [Installation](#installation)
-6. [Configuration](#configuration)
-7. [Quick Start](#quick-start)
-8. [Usage](#usage)
-9. [Project Structure](#project-structure)
-10. [Development](#development)
-11. [Testing](#testing)
-12. [Limitations](#limitations)
-13. [License](#license)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Technology Stack](#technology-stack)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Development](#development)
+- [Testing](#testing)
+- [Limitations](#limitations)
+- [License](#license)
 
 ## Features
 
 ### Expense Tracking
-expense_tracker_app allows you to easily add, edit, and delete expenses. Each expense can be categorized for better organization.
 
-### Budgeting
-Set budgets for different categories and get alerts when you're close to reaching your limits.
+expense_tracker_app allows you to record your expenses with ease. Simply input the amount, category, and description of each expense.
 
-### Reporting
-Generate detailed reports to help you understand your spending habits and identify areas for improvement.
+**Why it exists:** To provide a simple way to track your spending.
+
+**Why it is useful:** Helps you stay on top of your finances and make informed decisions.
 
 ## How It Works
 
-expense_tracker_app is built using Flutter, a popular framework for building natively compiled applications for mobile, web, and desktop from a single codebase. The app uses Dart as its programming language.
-
-The architecture of expense_tracker_app consists of several key components:
-
-- **Models**: Define the data structure for expenses.
-- **Widgets**: Build the user interface using Flutter's widget system.
-- **Services**: Handle business logic and data persistence.
+The app uses Flutter, a popular framework for building natively compiled applications for mobile, web, and desktop from a single codebase. The backend is implemented in C++, which handles the core logic and data management.
 
 ## Technology Stack
 
 | Technology | Purpose |
 |------------|---------|
-| Flutter    | Cross-platform app development framework. |
-| Dart       | Programming language used by Flutter. |
-| SQLite     | Local database for storing expense data. |
+| **Flutter** | Cross-platform UI development framework. |
+| **C++** | Core logic and data management. |
+| **Gradle** | Build tool for Android projects. |
+| **Xcode** | Integrated Development Environment (IDE) for iOS projects. |
 
 ## Requirements
 
-To run expense_tracker_app, you need:
-
 - Flutter SDK
-- Android Studio (for Android development)
-- Xcode (for iOS development)
+- CMake
+- Xcode (for iOS)
+- Android Studio (for Android)
 
 ## Installation
 
-### Android
+To install expense_tracker_app, follow these steps:
 
 1. Clone the repository:
    ```sh
    git clone https://github.com/PartORG/expense-tracker-app.git
    ```
+
 2. Navigate to the project directory:
    ```sh
-   cd expense-tracker-app/android
-   ```
-3. Run the app:
-   ```sh
-   ./gradlew run
+   cd expense-tracker-app
    ```
 
-### iOS
+3. Install dependencies:
+   ```sh
+   flutter pub get
+   ```
 
-1. Clone the repository:
+4. Run the app on Android:
    ```sh
-   git clone https://github.com/PartORG/expense-tracker-app.git
+   flutter run -d android
    ```
-2. Navigate to the project directory:
+
+5. Run the app on iOS:
    ```sh
-   cd expense-tracker-app/ios
+   flutter run -d ios
    ```
-3. Open `Runner.xcworkspace` in Xcode and run the app.
 
 ## Configuration
 
-### Environment Variables
+The project uses environment variables and configuration files for different platforms:
 
-No environment variables are required for this project.
-
-### Configuration Files
-
-The app uses a `pubspec.yaml` file to manage dependencies and configurations.
+- **Android:** `android/app/src/main/AndroidManifest.xml`
+- **iOS:** `ios/Runner.xcodeproj/project.pbxproj`
 
 ## Quick Start
 
-1. Clone the repository.
-2. Navigate to the appropriate platform directory (`android` or `ios`).
-3. Run the app using the provided commands.
+Here's a quick example of how to record an expense:
+
+```dart
+// Import the necessary package
+import 'package:expense_tracker_app/models/expense.dart';
+
+void main() {
+  // Create a new expense
+  Expense expense = Expense(
+    amount: 50.0,
+    category: 'Groceries',
+    description: 'Weekly grocery shopping',
+  );
+
+  // Print the expense details
+  print('Expense Amount: ${expense.amount}');
+  print('Category: ${expense.category}');
+  print('Description: ${expense.description}');
+}
+```
 
 ## Usage
 
-To add an expense, navigate to the "Add Expense" screen and fill out the form. To view expenses, go to the "Expenses" screen.
+To use expense_tracker_app, follow these steps:
+
+1. Open the project in your preferred IDE.
+2. Navigate to the `lib/main.dart` file.
+3. Run the app on your desired platform.
 
 ## Project Structure
 
-```
+```plaintext
 expense_tracker_app/
 ├── android/
 │   ├── app/
 │   │   └── src/
 │   │       └── main/
 │   │           └── kotlin/
-│   │               └── com/
-│   │                   └── example/
-│   │                       └── expense_tracker_app/
-│   │                           └── MainActivity.kt
+│   │               └── com/example/expense_tracker_app/
+│   │                   └── MainActivity.kt
+│   └── build.gradle
 ├── ios/
 │   ├── Runner.xcodeproj/
-│   ├── Runner/
-│   │   ├── AppDelegate.swift
-│   │   └── Assets.xcassets/
+│   └── Runner.swift
 ├── lib/
 │   ├── main.dart
 │   ├── models/
@@ -139,33 +151,27 @@ expense_tracker_app/
 │   │   │   ├── expense_item.dart
 │   │   │   └── expenses_list.dart
 │   │   └── new_expense.dart
+├── macos/
+│   └── Runner.xcodeproj/
 ├── test/
 │   └── widget_test.dart
-└── pubspec.yaml
+└── web/
+    ├── index.html
+    └── manifest.json
 ```
 
 ## Development
 
-To contribute to expense_tracker_app, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your forked repository.
-5. Open a pull request.
+The development workflow involves using Flutter for cross-platform development and C++ for the core logic. The project uses Gradle for Android builds and Xcode for iOS builds.
 
 ## Testing
 
-expense_tracker_app includes unit tests in the `test` directory. You can run these tests using:
-
-```sh
-flutter test
-```
+expense_tracker_app includes unit tests to ensure the functionality works as expected.
 
 ## Limitations
 
-- expense_tracker_app does not support offline data synchronization.
-- The app may require additional permissions for certain features to function properly.
+- Limited support for Windows platform.
+- No real-time data synchronization across devices.
 
 ## License
 
